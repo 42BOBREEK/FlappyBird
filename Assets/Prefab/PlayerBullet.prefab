@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1622195968309994551}
   - component: {fileID: 1182523353802910263}
   - component: {fileID: 1009820691175423836}
-  - component: {fileID: 4692536009688567532}
-  m_Layer: 0
+  - component: {fileID: 3296872478325252531}
+  m_Layer: 7
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.28, y: 0.23}
   m_EdgeRadius: 0
---- !u!114 &4692536009688567532
+--- !u!114 &3296872478325252531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531049622887865866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3abd01721475c3e60bb82cc55333f1aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 38a0420ee321760a48042ab053833474, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
   _speed: 5
+  _isEnemyBullet: 0

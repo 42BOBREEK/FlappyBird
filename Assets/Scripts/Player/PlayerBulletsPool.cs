@@ -1,1 +1,1 @@
-public class PlayerBulletsPool : GenericPool<PlayerBullet> { }
+public class PlayerBulletsPool : GenericPool<Bullet> { }

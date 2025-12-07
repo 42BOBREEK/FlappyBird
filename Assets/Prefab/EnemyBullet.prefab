@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1182523353802910263}
   - component: {fileID: 1558111326279043814}
   - component: {fileID: 1009820691175423836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
   _speed: 5
+  _isEnemyBullet: 1
 --- !u!61 &1009820691175423836
 BoxCollider2D:
   m_ObjectHideFlags: 0

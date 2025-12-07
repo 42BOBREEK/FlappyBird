@@ -5,15 +5,16 @@ using System;
 public class Enemy : MonoBehaviour, IInteractable
 {
     [SerializeField] private float _movementSpeed;
+    [SerializeField] private LayerMask _playerLayer;
 
-    private EnemyCollisionHandler _handler;
+    private CollisionHandler _handler;
     private Rigidbody2D _rigidbody;
 
     public event Action<Enemy> CollidedWithBullet;
 
     private void Awake()
     {
-        _handler = GetComponent<EnemyCollisionHandler>();
+        _handler = GetComponent<CollisionHandler>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -21,12 +22,10 @@ public class Enemy : MonoBehaviour, IInteractable
 
     private void OnDisable() => _handler.CollisionDetected -= ProcessCollision;
 
-    private void ProcessCollision(IInteractable interactable)
+    private void ProcessCollision(Collider2D coll)
     {
-        if (interactable is PlayerBullet)
-        {
+        if((_playerLayer.value & (1 << coll.gameObject.layer)) != 0)
             CollidedWithBullet?.Invoke(this);
-        }
     }
 
     private void Update() => transform.Translate(Vector3.left * _movementSpeed * Time.deltaTime);

@@ -3,14 +3,15 @@ using UnityEngine;
 
 [RequireComponent(typeof(BirdMover))]
 [RequireComponent(typeof(ScoreCounter))]
-[RequireComponent(typeof(BirdCollisionHandler))]
+[RequireComponent(typeof(CollisionHandler))]
 public class Bird : MonoBehaviour
 {
     [SerializeField] private InputReader _input;
+    [SerializeField] private LayerMask _enemyLayers;
 
     private BirdMover _birdMover;
     private ScoreCounter _scoreCounter;
-    private BirdCollisionHandler _handler;
+    private CollisionHandler _handler;
     private PlayerAttacker _attacker;
 
     public event Action GameOver;
@@ -19,7 +20,7 @@ public class Bird : MonoBehaviour
     {
         _attacker = GetComponent<PlayerAttacker>();
         _scoreCounter = GetComponent<ScoreCounter>();
-        _handler = GetComponent<BirdCollisionHandler>();
+        _handler = GetComponent<CollisionHandler>();
         _birdMover = GetComponent<BirdMover>();
     }
 
@@ -27,21 +28,23 @@ public class Bird : MonoBehaviour
     {
         _handler.CollisionDetected += ProcessCollision;
         _input.MouseClicked += Shoot;
+        _input.JumpClicked += Jump;
     }
 
     private void OnDisable()
     {
         _handler.CollisionDetected -= ProcessCollision;
         _input.MouseClicked -= Shoot;
+        _input.JumpClicked -= Jump;
     }
 
-    private void ProcessCollision(IInteractable interactable)
+    private void ProcessCollision(Collider2D coll)
     {
-        if (interactable is EnemyBullet || interactable is Ground || interactable is Enemy)
-        {
+        if((_enemyLayers.value & (1 << coll.gameObject.layer)) != 0)
             GameOver?.Invoke();
-        }
     }
+
+    private void Jump() => _birdMover.Jump();
 
     private void Shoot() => _attacker.Shoot();
 

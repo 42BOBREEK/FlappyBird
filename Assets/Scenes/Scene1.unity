@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 393053341}
   - component: {fileID: 393053340}
   - component: {fileID: 393053339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Med Block01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 528094384}
   - component: {fileID: 528094383}
   - component: {fileID: 528094382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Med Block01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da9e0b421a776d8948321e28cb2845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBulletsPool
-  _objectPrefab: {fileID: 4692536009688567532, guid: 281dc9d3e4066263a963a9b5e5455e4e, type: 3}
+  _objectPrefab: {fileID: 3296872478325252531, guid: 281dc9d3e4066263a963a9b5e5455e4e, type: 3}
 --- !u!1 &819476184
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,11 +881,11 @@ GameObject:
   - component: {fileID: 1171035758}
   - component: {fileID: 1171035762}
   - component: {fileID: 1171035765}
-  - component: {fileID: 1171035764}
   - component: {fileID: 1171035763}
   - component: {fileID: 1171035767}
   - component: {fileID: 1171035761}
   - component: {fileID: 1171035768}
+  - component: {fileID: 1171035769}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1023,18 +1023,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 1841175597}
---- !u!114 &1171035764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171035757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1f3709b9451584fbd6a7dfe3241413, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _enemyLayers:
+    serializedVersion: 2
+    m_Bits: 328
 --- !u!114 &1171035765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,6 +1091,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.24, y: 0.19}
   m_Direction: 1
+--- !u!114 &1171035769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171035757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1552278a3f5f55f2be7699b65f369b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionHandler
 --- !u!1 &1285716257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1115,7 @@ GameObject:
   - component: {fileID: 1285716261}
   - component: {fileID: 1285716260}
   - component: {fileID: 1285716259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Med Block01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1534,6 +1537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputReader
   _mouseIndex: 1
+  _jumpKey: 32
 --- !u!4 &1841175598
 Transform:
   m_ObjectHideFlags: 0

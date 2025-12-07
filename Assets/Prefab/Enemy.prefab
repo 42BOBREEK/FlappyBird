@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7460635483090809332}
   - component: {fileID: 5343618567466490330}
   - component: {fileID: 4995554256666997897}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,6 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   _movementSpeed: 2.5
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &5343618567466490330
 MonoBehaviour:
   m_ObjectHideFlags: 0

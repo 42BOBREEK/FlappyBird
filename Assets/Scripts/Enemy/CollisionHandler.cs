@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class EnemyCollisionHandler : MonoBehaviour
+public class CollisionHandler : MonoBehaviour
 {
-    public event Action<IInteractable> CollisionDetected;
+    public event Action<Collider2D> CollisionDetected;
 
     private void OnValidate()
     {
@@ -14,8 +14,6 @@ public class EnemyCollisionHandler : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent(out IInteractable interactable))
-        {
-            CollisionDetected?.Invoke(interactable);
-        }
+            CollisionDetected?.Invoke(other);
     }
 }

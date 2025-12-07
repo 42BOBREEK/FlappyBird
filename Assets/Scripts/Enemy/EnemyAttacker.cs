@@ -15,9 +15,10 @@ public class EnemyAttacker : MonoBehaviour
 
         while(_isShooting)
         {
-            EnemyBullet bullet = _pool.GetObject();
+            Bullet bullet = _pool.GetObject();
 
             bullet.transform.position = transform.position;
+            bullet.ChangeIsEnemy(true);
 
             yield return secondsToWait;
         }

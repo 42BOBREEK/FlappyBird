@@ -13,14 +13,12 @@ public class ObjectRemover : MonoBehaviour
             _enemyPool.ReturnObject(enemy);
         }
 
-        if (other.TryGetComponent(out EnemyBullet bullet))
+        if (other.TryGetComponent(out Bullet bullet))
         {
-            _enemyBulletsPool.ReturnObject(bullet);
-        }
-
-        if (other.TryGetComponent(out PlayerBullet playerBullet))
-        {
-            _playerBulletsPool.ReturnObject(playerBullet);
+            if(bullet.IsEnemyBullet)
+                _enemyBulletsPool.ReturnObject(bullet);
+            else
+                _playerBulletsPool.ReturnObject(bullet);
         }
     }
 }

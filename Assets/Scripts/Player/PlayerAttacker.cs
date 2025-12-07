@@ -23,6 +23,7 @@ public class PlayerAttacker : MonoBehaviour
             var bullet = _pool.GetObject();
 
             bullet.transform.position = transform.position;
+            bullet.ChangeIsEnemy(false);
 
             StartCoroutine(DisableCooldown());
         }
