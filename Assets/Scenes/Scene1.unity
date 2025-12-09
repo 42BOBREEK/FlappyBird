@@ -288,7 +288,7 @@ MonoBehaviour:
   _upperBound: 4
   _pool: {fileID: 233883497}
   _player: {fileID: 1171035763}
-  _enemyBulletsPool: {fileID: 2123556412}
+  _bulletsPool: {fileID: 2123556412}
   _isSpawning: 1
 --- !u!1 &233883495
 GameObject:
@@ -644,7 +644,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530089587}
-  - component: {fileID: 530089588}
   m_Layer: 0
   m_Name: PoolsHandler
   m_TagString: Untagged
@@ -667,69 +666,8 @@ Transform:
   m_Children:
   - {fileID: 233883496}
   - {fileID: 2123556411}
-  - {fileID: 783442870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &530089588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530089586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 067df507aaa3a1973ade27b07735a30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PoolsHandler
-  _enemyPool: {fileID: 233883497}
-  _enemyBulletsPool: {fileID: 2123556412}
-  _playerBulletsPool: {fileID: 783442871}
---- !u!1 &783442869
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 783442870}
-  - component: {fileID: 783442871}
-  m_Layer: 0
-  m_Name: PlayerBulletsPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &783442870
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783442869}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 530089587}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &783442871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783442869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8da9e0b421a776d8948321e28cb2845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerBulletsPool
-  _objectPrefab: {fileID: 3296872478325252531, guid: 281dc9d3e4066263a963a9b5e5455e4e, type: 3}
 --- !u!1 &819476184
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,8 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectRemover
   _enemyPool: {fileID: 233883497}
-  _playerBulletsPool: {fileID: 783442871}
-  _enemyBulletsPool: {fileID: 2123556412}
+  _bulletsPool: {fileID: 2123556412}
 --- !u!61 &987342809
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -882,10 +819,10 @@ GameObject:
   - component: {fileID: 1171035762}
   - component: {fileID: 1171035765}
   - component: {fileID: 1171035763}
-  - component: {fileID: 1171035767}
   - component: {fileID: 1171035761}
   - component: {fileID: 1171035768}
   - component: {fileID: 1171035769}
+  - component: {fileID: 1171035770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1039,21 +976,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyRemover: {fileID: 819476186}
---- !u!114 &1171035767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171035757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4228bf8ed324c9243ba727987dbacb52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttacker
-  _pool: {fileID: 783442871}
-  _shootingCooldown: 1
-  _canShoot: 1
 --- !u!70 &1171035768
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1103,6 +1025,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1552278a3f5f55f2be7699b65f369b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollisionHandler
+--- !u!114 &1171035770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171035757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec05a3b5cd47cedf8b75e05c137d5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Attacker
+  _pool: {fileID: 2123556412}
+  _shootingCooldown: 1
+  _canShoot: 1
+  _isShooting: 1
+  _bulletLayerName: PlayerBullet
 --- !u!1 &1285716257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1377,8 @@ MonoBehaviour:
   _bird: {fileID: 1171035763}
   _startScreen: {fileID: 5423666701634408257}
   _endGameScreen: {fileID: 981042500222842975}
-  _poolsHandler: {fileID: 530089588}
+  _enemyPool: {fileID: 233883497}
+  _bulletsPool: {fileID: 2123556412}
 --- !u!1 &1634450464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,8 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectRemover
   _enemyPool: {fileID: 233883497}
-  _playerBulletsPool: {fileID: 783442871}
-  _enemyBulletsPool: {fileID: 2123556412}
+  _bulletsPool: {fileID: 2123556412}
 --- !u!1 &2123556410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1597,7 @@ GameObject:
   - component: {fileID: 2123556411}
   - component: {fileID: 2123556412}
   m_Layer: 0
-  m_Name: EnemyBulletsPool
+  m_Name: BulletsPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,9 +1627,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2123556410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 023b8ad8d6cf8c1b5acc4d2d25aa22af, type: 3}
+  m_Script: {fileID: 11500000, guid: b1e1f1bf6ba4d73338534c13e613b12f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBulletsPool
+  m_EditorClassIdentifier: Assembly-CSharp::BulletsPool
   _objectPrefab: {fileID: 1558111326279043814, guid: c8e46b4a0846a23ddbff32cdb0360225, type: 3}
 --- !u!1 &353702438972318286
 GameObject:

@@ -1,1 +1,1 @@
-public class EnemyPool : GenericPool<Enemy> { }
+public class EnemyPool : Pool<Enemy> { }

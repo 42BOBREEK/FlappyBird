@@ -3,8 +3,7 @@ using UnityEngine;
 public class ObjectRemover : MonoBehaviour
 {
     [SerializeField] private EnemyPool _enemyPool;
-    [SerializeField] private PlayerBulletsPool _playerBulletsPool;
-    [SerializeField] private EnemyBulletsPool _enemyBulletsPool;
+    [SerializeField] private BulletsPool _bulletsPool;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,10 +14,7 @@ public class ObjectRemover : MonoBehaviour
 
         if (other.TryGetComponent(out Bullet bullet))
         {
-            if(bullet.IsEnemyBullet)
-                _enemyBulletsPool.ReturnObject(bullet);
-            else
-                _playerBulletsPool.ReturnObject(bullet);
+            _bulletsPool.ReturnObject(bullet);
         }
     }
 }

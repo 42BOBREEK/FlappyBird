@@ -5,7 +5,8 @@ public class Game : MonoBehaviour
     [SerializeField] private Bird _bird;
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private EndGameScreen _endGameScreen;
-    [SerializeField] private PoolsHandler _poolsHandler;
+    [SerializeField] private EnemyPool _enemyPool;
+    [SerializeField] private BulletsPool _bulletsPool;
 
     private void OnEnable()
     {
@@ -30,7 +31,10 @@ public class Game : MonoBehaviour
     private void OnGameOver()
     {
         Time.timeScale = 0;
-        _poolsHandler.ResetAllPools();
+
+        _enemyPool.ResetAllObjects();
+        _bulletsPool.ResetAllObjects();
+
         _endGameScreen.Open();
     }
 

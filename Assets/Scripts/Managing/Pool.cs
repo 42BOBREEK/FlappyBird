@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-public class GenericPool<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Pool<T> : MonoBehaviour where T : MonoBehaviour
 {
     [SerializeField] private T _objectPrefab;
 

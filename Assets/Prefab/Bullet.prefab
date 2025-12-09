@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1182523353802910263}
   - component: {fileID: 1558111326279043814}
   - component: {fileID: 1009820691175423836}
-  m_Layer: 8
-  m_Name: EnemyBullet
+  m_Layer: 0
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.2751, y: -0.1122, z: 0}
-  m_LocalScale: {x: 1.8526093, y: 0.7713378, z: 1}
+  m_LocalScale: {x: 1.852609, y: 0.7713378, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
   _speed: 5
-  _isEnemyBullet: 1
 --- !u!61 &1009820691175423836
 BoxCollider2D:
   m_ObjectHideFlags: 0

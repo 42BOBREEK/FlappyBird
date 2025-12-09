@@ -12,13 +12,13 @@ public class Bird : MonoBehaviour
     private BirdMover _birdMover;
     private ScoreCounter _scoreCounter;
     private CollisionHandler _handler;
-    private PlayerAttacker _attacker;
+    private Attacker _attacker;
 
     public event Action GameOver;
 
     private void Awake()
     {
-        _attacker = GetComponent<PlayerAttacker>();
+        _attacker = GetComponent<Attacker>();
         _scoreCounter = GetComponent<ScoreCounter>();
         _handler = GetComponent<CollisionHandler>();
         _birdMover = GetComponent<BirdMover>();

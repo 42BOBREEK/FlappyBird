@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _upperBound;
     [SerializeField] private EnemyPool _pool;
     [SerializeField] private Bird _player;
-    [SerializeField] private EnemyBulletsPool _enemyBulletsPool;
+    [SerializeField] private BulletsPool _bulletsPool;
     [SerializeField] private bool _isSpawning;
 
     private void Start()
@@ -37,10 +37,11 @@ public class EnemySpawner : MonoBehaviour
         enemy.gameObject.SetActive(true);
         enemy.transform.position = spawnPoint;
 
-        var enemyAttacker = enemy.GetComponent<EnemyAttacker>();
+        var enemyAttacker = enemy.GetComponent<Attacker>();
 
+        enemyAttacker.SetPool(_bulletsPool);
         enemyAttacker.ChangeIsShooting(true);
-        enemyAttacker.SetPool(_enemyBulletsPool);
+        enemyAttacker.ChangeCanShoot(true);
         enemyAttacker.StartShooting();
     }
 }
